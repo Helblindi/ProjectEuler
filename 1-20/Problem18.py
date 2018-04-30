@@ -22,6 +22,7 @@ def max_sum(rows):
     return rows[0][0]
 
 
+# http://www.pythonforbeginners.com/cheatsheet/python-file-handling
 file = open('data_files/MaximumPathSum1', 'r')
 rows = []
 
