@@ -11,8 +11,13 @@ That is, 3 + 7 + 4 + 9 = 23.
 
 Find the maximum total from top to bottom of the triangle below:
 """
+import os
 import time
 start = time.time()
+
+path = "D:\Program Files\PyCharm Projects\ProjectEuler\data_files"
+
+file_name = os.path.join(path, "MaximumPathSum1")
 
 
 def max_sum(rows):
@@ -23,7 +28,7 @@ def max_sum(rows):
 
 
 # http://www.pythonforbeginners.com/cheatsheet/python-file-handling
-file = open('data_files/MaximumPathSum1', 'r')
+file = open(file_name, 'r')
 rows = []
 
 for line in file:
