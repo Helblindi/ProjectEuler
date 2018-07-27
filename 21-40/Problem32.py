@@ -17,8 +17,45 @@ import time
 def main():
     start_time = time.time()
 
+    products = []
+
+    for a in range(1, 100000):
+        for b in range(a, 100000):
+            if len(str(a) + str(b) + str(a*b)) > 9:
+                break
+            if is_pandigital_product(a, b):
+                products.append(a*b)
+                print("%i x %i = %i" % (a, b, a * b))
+
     end_time = time.time() - start_time
-    print("found %s in %2f seconds." % (0, end_time))
+    print("Found %s in %2f seconds." % (sum(set(products)), end_time))
+
+
+def get_digits(num):
+    num_array = []
+
+    while num != 0:
+        digit = num % 10
+        num //= 10
+        num_array.append(digit)
+
+    return num_array
+
+
+def is_pandigital(num):
+    num_array = get_digits(num)
+    if (len(set(num_array)) == len(num_array) == max(num_array)) and min(num_array) == 1:
+        return True
+    else:
+        return False
+
+
+def is_pandigital_product(a, b):
+    numbers = str(a) + str(b) + str(a*b)
+    if len(numbers) != 9:
+        return False
+    numbers = int(numbers)
+    return is_pandigital(numbers)
 
 
 # While not required, it is considered good practice to have
