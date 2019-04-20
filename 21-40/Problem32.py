@@ -14,6 +14,9 @@ once in your sum.
 import time
 
 
+def is_pandigital(num_string):
+    
+
 def main():
     start_time = time.time()
 
