@@ -10,6 +10,11 @@ import time
 
 # driver function for our program
 def main():
+    """
+    Driver function for our program.  This program is designed to sum the numbers
+    between 1 and 1,000,000 that have the property that both the number and the
+    binary representation of said number are palindroms.
+    """
     start_time = time.time()
 
     sum = 0
@@ -24,19 +29,23 @@ def main():
 
 
 def is_palindrome(n):
+    """ Tests if the given number n is a palindrome """
     return n == reverse_int(n)
 
 
 def is_bin_palindrome(n):
+    """ Tests if the given binary number n is a palindrome """
     bin_n = dec_to_bin(n)
     return bin_n == reverse_int(bin_n)
 
 
 def dec_to_bin(n):
+    """ Converts decimal to binary """
     return int(bin(n)[2:])
 
 
 def reverse_int(n):
+    """ Reverses the values in an integer. 1234 = 4321 """
     reverse = 0
     while n > 0:
         remainder = n % 10
