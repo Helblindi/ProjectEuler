@@ -8,7 +8,7 @@ Find the sum of the only eleven primes that are both truncatable from left to ri
 NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 """
 import time
-from useful import is_prime
+from Misc.useful import is_prime
 
 
 # driver function for our program
