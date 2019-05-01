@@ -1,0 +1,13 @@
+# command to remove files that are already tracked
+# git rm --cached "filename"
+
+.idea/ProjectEuler.iml
+.idea/MachineLearning.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+**__pychache__/
+
+# No need to upload my test environment python file
+Test_Grounds.py
