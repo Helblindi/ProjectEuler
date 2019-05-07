@@ -3,6 +3,7 @@ This file is where we will collect our functions that we have made to assist in 
 """
 from math import sqrt
 from itertools import count, islice
+import numpy as np
 
 
 # https://stackoverflow.com/questions/4114167/checking-if-a-number-is-a-prime-number-in-python
@@ -19,14 +20,14 @@ def is_prime(n):
 
 # Helper function for the is_pandigital function
 def get_digits(num):
-    num_array = []
+    num_array = np.array([])
 
     while num != 0:
         digit = num % 10
-        num //= 10
-        num_array.append(digit)
+        num //= int(10)
+        num_array = np.append(num_array, int(float(digit)))
 
-    return num_array
+    return np.flip(num_array)
 
 
 # Checks if a given number is pandigital or not
