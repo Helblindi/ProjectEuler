@@ -15,3 +15,24 @@ def is_prime(n):
             return False
 
     return True
+
+
+# Helper function for the is_pandigital function
+def get_digits(num):
+    num_array = []
+
+    while num != 0:
+        digit = num % 10
+        num //= 10
+        num_array.append(digit)
+
+    return num_array
+
+
+# Checks if a given number is pandigital or not
+def is_pandigital(num):
+    num_array = get_digits(num)
+    if (len(set(num_array)) == len(num_array) == max(num_array)) and min(num_array) == 1:
+        return True
+    else:
+        return False

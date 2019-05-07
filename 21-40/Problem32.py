@@ -12,9 +12,6 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 once in your sum.
 """
 import time
-
-
-def is_pandigital(num_string):
     
 
 def main():
