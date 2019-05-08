@@ -90,3 +90,25 @@ def get_alphabetic_value(word):
         value += string.ascii_uppercase.index(i) + 1
 
     return value
+
+
+def check_substring_divisibility(num, start, end, modulus):
+    """
+    Function checks if a substring of a given number is divisible by the modulus value.
+    First implemented in Problem 43.
+    :param num: string or int
+    :param start: substring initial index
+    :param end: substring end index
+    :param modulus: value to be modded
+    :return: True or false if the substring value mod the modulus is 0
+    """
+    # First convert num to a string if it isn't
+    # https://stackoverflow.com/questions/4843173/how-to-check-if-type-of-a-variable-is-string
+    if not isinstance(num, str):
+        num = str(num)
+
+    # Now run the modulus check
+    if int(num[start:end]) % modulus == 0:
+        return True
+    else:
+        return False
