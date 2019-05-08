@@ -18,6 +18,18 @@ def is_prime(n):
     return True
 
 
+# numpy implementation of the sieve of eratosthenes
+def sieve(n):
+    flags = np.ones(n, dtype=bool)
+    flags[0] = flags[1] = False
+    for i in range(2, n):
+        # We could use a lower upper bound for this loop, but I don't want to bother with
+        # getting the rounding right on the sqrt handling.
+        if flags[i]:
+            flags[i*i::i] = False
+    return np.flatnonzero(flags)
+
+
 # Helper function for the is_pandigital function
 def get_digits(num):
     num_array = np.array([])
@@ -37,3 +49,12 @@ def is_pandigital(num):
         return True
     else:
         return False
+
+
+# def generate_pandigital_nums(n):
+#     """
+#     Generates the set of possible nth pandigital numbers.
+#     :param n: nth pandigital
+#     :return: set of possible nth pandigital numbers
+#     """
+#
