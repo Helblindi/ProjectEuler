@@ -1,6 +1,7 @@
 """
 This file is where we will collect our functions that we have made to assist in solving the ProjectEuler questions.
 """
+import string
 from math import sqrt
 from itertools import count, islice
 import numpy as np
@@ -80,3 +81,12 @@ def permutation(lst):
         for p in permutation(rem_lst):
             l.append([m] + p)
     return l
+
+
+def get_alphabetic_value(word):
+    value = 0
+    for i in word:
+        # https://stackoverflow.com/questions/5927149/get-character-position-in-alphabet
+        value += string.ascii_uppercase.index(i) + 1
+
+    return value

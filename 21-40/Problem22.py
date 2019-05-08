@@ -45,6 +45,7 @@ words = sorted(words)
 
 total = 0
 for word in words:
+    print(word)
     total += (words.index(word)+1) * get_alphabetic_value(word)
 
 elapsed = (time.time() - start)
