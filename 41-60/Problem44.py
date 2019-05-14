@@ -12,34 +12,44 @@ their sum and difference are pentagonal and D = |Pk − Pj|
 is minimised; what is the value of D?
 """
 import time
+from Misc.useful import is_pentagonal
 
 
 # driver function for our program
 def main():
     """
+    With m = 7042750 and n = 1560090 it calculated
+    D = 5482660 in 672 seconds.
     """
     start_time = time.time()
-    last_pent_index = 500
-    pentagonal_numbers = []
-    minimum_distance = 999999
-    for i in range(1, last_pent_index):
-        num = (i*(3*i-1))/2
-        print(num)
-        pentagonal_numbers.append(num)
 
-    for j in range(0, last_pent_index - 2):
-        for k in range(j, last_pent_index - 1):
-            num_j = pentagonal_numbers[j]
-            num_k = pentagonal_numbers[k]
-            difference = abs(num_j - num_k)
-            if difference in pentagonal_numbers and \
-                    num_j + num_k in pentagonal_numbers:
-                if difference < minimum_distance:
-                    minimum_distance = difference
+    distance = 0
+    not_found = True
+    i = 2
+    num_m = 0
+    num_n = 0
+
+    while not_found:
+        m = i * (3*i - 1) / 2
+        j = i - 1
+
+        while j > 0:
+            n = j * (3*j - 1) / 2
+            if is_pentagonal(m+n) and is_pentagonal(abs(m-n)):
+                distance = abs(m-n)
+                not_found = False
+                num_m = m
+                num_n = n
+                break
+
+            j -= 1
+
+        i += 1
 
     # calculate end time and print results
     end_time = time.time() - start_time
-    print("Found %s in %2f seconds." % (minimum_distance, end_time))
+    print("Found %s in %2f seconds." % (distance, end_time))
+    print(num_m, num_n)
 
 
 # While not required, it is considered good practice to have

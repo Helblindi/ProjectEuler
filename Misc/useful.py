@@ -112,3 +112,20 @@ def check_substring_divisibility(num, start, end, modulus):
         return True
     else:
         return False
+
+
+def is_pentagonal(num):
+    """
+    Iteratively determines if the passed in parameter is a pentagonal number.
+    :param num: number to be tested
+    :return: if num is pentagonal
+    """
+    i = 1
+    while True:
+        m = i*(3*i - 1) / 2
+        if m >= num:
+            break
+        i += 1
+
+    return m == num
+
