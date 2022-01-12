@@ -10,16 +10,6 @@ What 12-digit number do you form by concatenating the three terms in this
 sequence?
 """
 
-"""
-Plan:
-
-    1. Create a function to find a list of primes between a start and end number.
-    2. Outer iteration over this list.
-        3. Inner iteration over values to sum.
-        4. Check if values are in list of primes.
-        5. Check numerals in numbers to see if equivalent.
-"""
-
 import time
 import sys
 sys.path.insert(0, '/Users/madisonsheridan/Workspace/ProjectEuler/Misc')
@@ -32,12 +22,21 @@ def main():
     """
     start_time = time.time()
 
-    primes = get_list_of_primes(1, 9999)
+    primes = get_list_of_primes(1000, 9999)
     for i in primes:
         for num in range(1, int((9999 - i) / 2) + 1):
             j = i + num
             k = j + num
-            print(i, j, k)
+
+            if j in primes and k in primes:
+                i_digits = set(get_digits(i))
+                j_digits = set(get_digits(j))
+                k_digits = set(get_digits(k))
+
+                if i_digits == j_digits and j_digits == k_digits:
+                    # We've found a sequence of digits that satisfies the
+                    # desired properties
+                    print(i, j, k)
 
     end_time = time.time() - start_time
     # print("Found %s in %2f seconds." % (sum, end_time))
