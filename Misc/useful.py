@@ -4,6 +4,7 @@ This file is where we will collect our functions that we have made to assist in 
 import string
 from math import sqrt
 from itertools import count, islice
+from functools import reduce
 import numpy as np
 
 
@@ -129,3 +130,27 @@ def is_pentagonal(num):
 
     return m == num
 
+
+def get_factors(n):
+    """
+    Returns the factors of a given number.
+    First used in Problem 47.
+
+    :param n: number to find factors for.
+    :return: set of factors of n
+    """
+    return set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
+
+
+def get_num_distinct_prime_factors(n):
+    """
+    Returns the number of distinct prime factors of a given number.  Utilizes
+    the get_factors function and the is_prime function.
+    first used in Problem 47.
+
+    :param n: number to find the distinct prime factors for.
+    :return: length of the set of prime factors.
+    """
+    factors = get_factors(n)
+    distinct_prime_factors = [num for num in factors if is_prime(num)]
+    return len(distinct_prime_factors)
