@@ -154,3 +154,17 @@ def get_num_distinct_prime_factors(n):
     factors = get_factors(n)
     distinct_prime_factors = [num for num in factors if is_prime(num)]
     return len(distinct_prime_factors)
+
+
+def get_list_of_primes(start, end):
+    """
+    Returns a list of primes between start and end.
+    First used in Problem 49.
+
+    :param start: Starting value for list.
+    :param end: Ending value for list.
+    :return: List of primes.
+
+    If prime is in list, start <= prime <= end.
+    """
+    return [num for num in range(start, end + 1) if is_prime(num)]
