@@ -93,6 +93,48 @@ def get_alphabetic_value(word):
     return value
 
 
+def is_palindrome(n):
+    """
+    Tests if the given number n is a palindrome.
+
+    First used in Problem 36.
+    """
+    return n == reverse_int(n)
+
+
+def is_bin_palindrome(n):
+    """
+    Tests if the given binary number n is a palindrome.
+
+    First used in Problem 36.
+    """
+    bin_n = dec_to_bin(n)
+    return bin_n == reverse_int(bin_n)
+
+
+def dec_to_bin(n):
+    """
+    Converts decimal to binary.
+
+    First used in Problem 36.
+    """
+    return int(bin(n)[2:])
+
+
+def reverse_int(n):
+    """
+    Reverses the values in an integer. 1234 = 4321.
+
+    First used in Problem 36.
+    """
+    reverse = 0
+    while n > 0:
+        remainder = n % 10
+        reverse = (reverse * 10) + remainder
+        n = n // 10
+    return reverse
+
+
 def check_substring_divisibility(num, start, end, modulus):
     """
     Function checks if a substring of a given number is divisible by the modulus value.

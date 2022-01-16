@@ -6,6 +6,8 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 (Please note that the palindromic number, in either base, may not include leading zeros.)
 """
 import time
+sys.path.insert(0, '/Users/madisonsheridan/Workspace/ProjectEuler/Misc')
+from useful import is_palindrome, is_bin_palindrome
 
 
 # driver function for our program
@@ -26,32 +28,6 @@ def main():
 
     end_time = time.time() - start_time
     print("Found %s in %2f seconds." % (sum, end_time))
-
-
-def is_palindrome(n):
-    """ Tests if the given number n is a palindrome """
-    return n == reverse_int(n)
-
-
-def is_bin_palindrome(n):
-    """ Tests if the given binary number n is a palindrome """
-    bin_n = dec_to_bin(n)
-    return bin_n == reverse_int(bin_n)
-
-
-def dec_to_bin(n):
-    """ Converts decimal to binary """
-    return int(bin(n)[2:])
-
-
-def reverse_int(n):
-    """ Reverses the values in an integer. 1234 = 4321 """
-    reverse = 0
-    while n > 0:
-        remainder = n % 10
-        reverse = (reverse * 10) + remainder
-        n = n // 10
-    return reverse
 
 
 # While not required, it is considered good practice to have
